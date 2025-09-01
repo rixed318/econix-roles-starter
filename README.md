@@ -20,6 +20,12 @@ pnpm test     # vitest
 pnpm etl:all  # собрать salaries.json и econix.db из CSV
 ```
 
+## Package manager
+- По умолчанию: pnpm@9.7.0 (Node 22 + Corepack)
+- При блокировках прокси используйте npm:
+  npm i && npm run dev
+CI автоматически падает на npm, если pnpm недоступен.
+
 ## Дорожная карта
 - Состояние/валидация: Zustand + Zod
 - UI: React + Tailwind, фокус на доступности
