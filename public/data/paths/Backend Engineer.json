@@ -1,0 +1,26 @@
+{
+  "role": "Backend Engineer",
+  "durationDays": 28,
+  "weeks": [
+    {"title":"Неделя 1 — База","items":[
+      "HTTP, REST, JSON, статус-коды",
+      "Node.js: Express/Fastify, middleware",
+      "SQL основы: SELECT/JOIN/INDEX"
+    ]},
+    {"title":"Неделя 2 — API","items":[
+      "Сделай API: аутентификация, пагинация",
+      "Валидация: Zod/Joi, схемы",
+      "Тесты: Vitest + supertest"
+    ]},
+    {"title":"Неделя 3 — Продакшн","items":[
+      "Dockerfile + Compose",
+      "Логирование и метрики",
+      "CI: GitHub Actions (test/build)"
+    ]},
+    {"title":"Неделя 4 — Портфолио","items":[
+      "Добавь кеш (Redis) и поиск",
+      "Напиши README с curl-примером",
+      "Деплой (Railway/Fly.io/VPS)"
+    ]}
+  ]
+}

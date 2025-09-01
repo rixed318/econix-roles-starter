@@ -42,6 +42,22 @@ function usdPerMonth(value: string, rates: Record<string, number>) {
   return m.period === 'm' ? usd : usd / 12
 }
 
+function levelsFromPercentiles(p10?: number, p50?: number, p90?: number) {
+  if (p50 && p10 && p90) {
+    const jMin = p10, jMax = Math.round((p10 + p50) / 2)
+    const mMin = jMax, mMax = Math.round((p50 + p90) / 2)
+    const sMin = mMax, sMax = p90
+    return { jMin, jMax, mMin, mMax, sMin, sMax }
+  }
+  if (p50) {
+    const jMin = Math.round(0.65 * p50), jMax = Math.round(0.9 * p50)
+    const mMin = jMax, mMax = Math.round(1.2 * p50)
+    const sMin = mMax, sMax = Math.round(1.6 * p50)
+    return { jMin, jMax, mMin, mMax, sMin, sMax }
+  }
+  return {}
+}
+
 function groupByRole(items: CanonSalary[], rates: Record<string, number>, fxDate: string): MergeRow[] {
   const grouped = new Map<string, MergeRow>()
   for (const it of items) {
@@ -49,14 +65,28 @@ function groupByRole(items: CanonSalary[], rates: Record<string, number>, fxDate
     const row = grouped.get(role) ?? { role, regions: {}, sourceMeta: {}, fxDate }
     const region: RegionSalary = { value: it.value }
     const usdpm = usdPerMonth(it.value, rates)
-    if (usdpm) region.usdpm = Math.round(usdpm)
-    if (it.p10) region.p10 = it.p10
-    if (it.p90) region.p90 = it.p90
+    if (usdpm) {
+      region.usdpm = Math.round(usdpm)
+      if (row.p50_usdpm == null) row.p50_usdpm = region.usdpm
+    }
+    if (it.p10) {
+      region.p10 = it.p10
+      const u = usdPerMonth(it.p10, rates)
+      if (u && row.p10_usdpm == null) row.p10_usdpm = Math.round(u)
+    }
+    if (it.p90) {
+      region.p90 = it.p90
+      const u = usdPerMonth(it.p90, rates)
+      if (u && row.p90_usdpm == null) row.p90_usdpm = Math.round(u)
+    }
     row.regions[it.region] = region
     row.sourceMeta![it.region] = { sourceId: it.sourceId, url: it.url }
     grouped.set(role, row)
   }
-  return Array.from(grouped.values())
+  return Array.from(grouped.values()).map(r => {
+    r.levels = levelsFromPercentiles(r.p10_usdpm, r.p50_usdpm ?? r.p10_usdpm, r.p90_usdpm)
+    return r
+  })
 }
 
 function readJSON(p: string) {

@@ -5,6 +5,9 @@ import ComparePlus from '../pages/ComparePlus'
 import Guide from '../pages/Guide'
 import ChartsPage from '../pages/Charts'
 import Unmatched from '../pages/Unmatched'
+import LevelsPage from '../pages/Levels'
+import PathPage from '../pages/Path'
+import ResumePage from '../pages/Resume'
 import MainLanding from '../pages/MainLanding'
 import { useHash } from './routes'
 
@@ -24,6 +27,12 @@ export default function App() {
     ? <Guide />
     : route === 'charts'
     ? <ChartsPage />
+    : route === 'levels'
+    ? <LevelsPage />
+    : route === 'path'
+    ? <PathPage />
+    : route === 'resume'
+    ? <ResumePage />
     : route === 'unmatched'
     ? <Unmatched />
     : <Home />

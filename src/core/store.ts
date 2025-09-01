@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { readStateFromUrl, writeStateToUrl } from './share'
 
 export type Filters = Record<string, string>
 
@@ -11,12 +12,20 @@ interface Store {
   setFilters: (f: Filters) => void
 }
 
+const initial = readStateFromUrl()
+
 export const useStore = create<Store>((set) => ({
-  query: '',
-  activeRegion: 'usa',
+  query: initial.query,
+  activeRegion: initial.region,
   filters: {},
-  setQuery: (q) => set({ query: q }),
-  setRegion: (r) => set({ activeRegion: r }),
+  setQuery: (q) => {
+    set({ query: q })
+    writeStateToUrl({ query: q })
+  },
+  setRegion: (r) => {
+    set({ activeRegion: r })
+    writeStateToUrl({ region: r })
+  },
   setFilters: (f) => set({ filters: f }),
 }))
 

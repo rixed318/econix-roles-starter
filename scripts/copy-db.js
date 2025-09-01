@@ -19,3 +19,17 @@ if (fs.existsSync(fxSrc)) {
   fs.copyFileSync(fxSrc, fxDest)
   console.log(`[copy-db] скопировано → ${path.relative(process.cwd(), fxDest)}`)
 }
+
+const pathsSrc = path.resolve('data/paths')
+if (fs.existsSync(pathsSrc)) {
+  const pathsDest = path.join(destDir, 'paths')
+  fs.mkdirSync(pathsDest, { recursive: true })
+  for (const f of fs.readdirSync(pathsSrc)) {
+    const srcFile = path.join(pathsSrc, f)
+    if (fs.statSync(srcFile).isFile()) {
+      const destFile = path.join(pathsDest, f)
+      fs.copyFileSync(srcFile, destFile)
+      console.log(`[copy-db] скопировано → ${path.relative(process.cwd(), destFile)}`)
+    }
+  }
+}

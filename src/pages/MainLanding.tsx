@@ -9,6 +9,7 @@ import { Tabs, Tab } from '../components/Tabs'
 import { useStore } from '../core/store'
 import { useI18n } from '../i18n'
 import { searchRoles, applyFilters } from '../core/utils'
+import { writeStateToUrl } from '../core/share'
 
 const rolesParsed = RolesSchema.safeParse(rolesJson)
 if (!rolesParsed.success) console.error(rolesParsed.error)
@@ -42,14 +43,21 @@ export default function MainLanding() {
           <h1 className="text-2xl font-bold">{t('title')} • {t('subtitle')}</h1>
           <p className="text-gray-600 text-sm">{t('dataNote')}</p>
         </div>
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-2 items-center flex-wrap">
           <Tabs tabs={regionTabs} active={activeIdx} onChange={(i) => setRegion(regions[i])} />
           <button className="border px-2" onClick={() => setLocale(locale === 'ru' ? 'en' : 'ru')}>{locale.toUpperCase()}</button>
+          <button className="px-2 border" onClick={() => {
+            const url = writeStateToUrl({ query, region })
+            navigator.clipboard.writeText(url)
+          }}>Share</button>
+          <a href="#guide" className="text-sm underline">Guide</a>
           <a href="#wizard" className="text-sm underline">Wizard</a>
           <a href="#compare" className="text-sm underline">Compare</a>
           <a href="#compare-plus" className="text-sm underline">Compare+</a>
+          <a href="#levels" className="text-sm underline">Levels</a>
           <a href="#charts" className="text-sm underline">Charts</a>
-          <a href="#guide" className="text-sm underline">Guide</a>
+          <a href="#path" className="text-sm underline">Path</a>
+          <a href="#resume" className="text-sm underline">Resume</a>
           <a href="#unmatched" className="text-sm underline opacity-70">Unmatched</a>
           <a href="#health" className="text-sm underline opacity-70">Health</a>
         </div>

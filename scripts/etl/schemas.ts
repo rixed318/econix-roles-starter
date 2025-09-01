@@ -16,4 +16,8 @@ export type MergeRow = {
   regions: Partial<Record<Region, RegionSalary>>
   sourceMeta?: Partial<Record<Region, {sourceId: string, url?: string}>>
   fxDate?: string
+  p10_usdpm?: number
+  p50_usdpm?: number
+  p90_usdpm?: number
+  levels?: { jMin?: number; jMax?: number; mMin?: number; mMax?: number; sMin?: number; sMax?: number }
 }
