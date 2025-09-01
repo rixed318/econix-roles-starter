@@ -17,14 +17,16 @@ pnpm build    # сборка web в dist/
 pnpm tauri:dev   # desktop (требуется Rust и tauri-cli)
 pnpm tauri:build # desktop сборка в src-tauri/target
 pnpm test     # vitest
-pnpm etl:all  # собрать salaries.json и econix.db из CSV
+pnpm etl:all  # собрать salaries.json и econix.db из CSV и скопировать в public/data/
 ```
 
 ## Package manager
 - По умолчанию: pnpm@9.7.0 (Node 22 + Corepack)
 - При блокировках прокси используйте npm:
-  npm i && npm run dev
-CI автоматически падает на npm, если pnpm недоступен.
+  npm i --no-audit --fund=false && npm run dev
+CI автоматически падает на npm, если pnpm недоступен. Не запускайте `npm install --package-lock-only` — он требует доступ к registry и часто блокируется корпоративным прокси.
+
+После `npm run etl:all` снапшот `data/econix.db` копируется в `public/data/`. Страница `/compare` покажет столбцы `—`, если файл отсутствует.
 
 ## Дорожная карта
 - Состояние/валидация: Zustand + Zod
