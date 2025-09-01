@@ -1,0 +1,18 @@
+{
+  "$schema": "https://tauri.app/schema.json",
+  "build": {
+    "beforeDevCommand": "vite",
+    "beforeBuildCommand": "vite build",
+    "devPath": "http://localhost:5173",
+    "distDir": "../dist"
+  },
+  "package": {
+    "productName": "econix-roles",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "windows": [
+      { "title": "Econix Roles", "width": 800, "height": 600 }
+    ]
+  }
+}

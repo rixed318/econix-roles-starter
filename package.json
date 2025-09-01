@@ -2,26 +2,52 @@
   "name": "econix-roles",
   "private": true,
   "version": "0.1.0",
+  "packageManager": "pnpm@9.7.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "zustand": "^4.5.2",
     "zod": "^3.23.8",
-    "fuse.js": "^7.0.0"
+    "fuse.js": "^7.0.0",
+    "sql.js": "^1.10.2",
+    "cheerio": "^1.0.0",
+    "fast-xml-parser": "^4.5.0",
+    "xlsx": "^0.18.5",
+    "recharts": "^2.12.7"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^22.5.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@types/sql.js": "^1.4.7",
     "autoprefixer": "^10.4.20",
+    "jsdom": "^25.0.0",
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.10",
     "typescript": "^5.4.5",
-    "vite": "^5.4.0"
+    "vite": "^5.4.0",
+    "vitest": "^2.0.5",
+    "tsx": "^4.15.7"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/copy-db.js",
+    "preview": "vite preview",
+    "test": "vitest run --coverage",
+    "test:watch": "vitest",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build",
+    "etl:fx": "tsx scripts/etl/fx-ecb.ts",
+    "etl:bls": "tsx scripts/etl/bls-national.ts",
+    "etl:ons": "tsx scripts/etl/ons-ashe.ts",
+    "etl:eurostat": "tsx scripts/etl/eurostat.ts",
+    "etl:merge": "tsx scripts/etl/merge.ts",
+    "etl:db": "tsx scripts/etl/build-sqlite.ts",
+    "etl:all": "tsx scripts/etl/fx-ecb.ts && tsx scripts/etl/bls-national.ts && tsx scripts/etl/ons-ashe.ts && tsx scripts/etl/eurostat.ts && tsx scripts/etl/merge.ts && tsx scripts/etl/build-sqlite.ts && node scripts/copy-db.js"
   }
 }

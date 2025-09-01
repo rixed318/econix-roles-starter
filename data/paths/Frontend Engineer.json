@@ -1,0 +1,26 @@
+{
+  "role": "Frontend Engineer",
+  "durationDays": 28,
+  "weeks": [
+    {"title":"Неделя 1 — Основы","items":[
+      "HTML/CSS: семантика, Flex/Grid",
+      "JS основы: типы, функции, модули",
+      "React: компоненты, props/state, JSX"
+    ]},
+    {"title":"Неделя 2 — Проект","items":[
+      "Создай Todo/Дэшборд (Vite+React)",
+      "Роутинг, состояние (Zustand), формы (RHF)",
+      "Деплой: GitHub Pages/Netlify"
+    ]},
+    {"title":"Неделя 3 — Качество","items":[
+      "Тесты: Vitest + RTL",
+      "A11y: aria, клавиатура, prefers-reduced-motion",
+      "i18n: ru/en переключение"
+    ]},
+    {"title":"Неделя 4 — Портфолио","items":[
+      "Рефакторинг, перфоманс (Code Split, Suspense)",
+      "Добавь 2 фичи (экспорт CSV, фильтры)",
+      "Оформление README, скриншоты, демо-ссылка"
+    ]}
+  ]
+}

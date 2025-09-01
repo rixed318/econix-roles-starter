@@ -1,112 +1,107 @@
-import { useMemo, useState } from 'react'
+import { useState, useMemo } from 'react'
+import Typeahead from '@/components/Typeahead'
+import Filters from '@/components/Filters'
+import RolePage from '@/pages/Role'
+import Pinboard from '@/pages/Pinboard'
+import { usePins } from '@/core/pin'
+import { inferTrack } from '@/core/track'
+import { slugify } from '@/core/slug'
 import roles from '../../data/roles.json'
-import salaries from '../../data/salaries.json'
-import { create } from 'zustand'
-import Fuse from 'fuse.js'
+import Guide from '@/pages/Guide'
+import Wizard from '@/pages/Wizard'
+import ComparePage from '@/pages/Compare'
+import ComparePlus from '@/pages/ComparePlus'
+import ChartsPage from '@/pages/Charts'
+import LevelsPage from '@/pages/Levels'
+import PathPage from '@/pages/Path'
+import ResumePage from '@/pages/Resume'
+import Unmatched from '@/pages/Unmatched'
+import HealthPage from '@/pages/Health'
+import { writeStateToUrl, readStateFromUrl } from '@/core/share'
 
-type Role = typeof roles[number]
-type Salary = typeof salaries[number]
-
-type Store = {
-  query: string
-  setQuery: (q: string) => void
-  region: 'usa' | 'eu' | 'russia' | 'china'
-  setRegion: (r: 'usa' | 'eu' | 'russia' | 'china') => void
+function useRoute(){
+  const h = (typeof window !== 'undefined' ? window.location.hash.replace(/^#/, '') : '/') || '/'
+  const [path, ...rest] = h.split('/')
+  return { path, rest }
 }
 
-const useStore = create<Store>((set) => ({
-  query: '',
-  setQuery: (q) => set({ query: q }),
-  region: 'usa',
-  setRegion: (r) => set({ region: r }),
-}))
-
-const fuse = new Fuse(roles, { keys: ['title', 'subtitle', 'sections.content', 'sections.title'], threshold: 0.3 })
-
-function RoleCard({ role }: { role: Role }) {
+function RoleCardInline({ role }: { role: any }){
+  const { pins, toggle } = usePins()
+  const pinned = pins.includes(role.title)
+  const shared = readStateFromUrl().role
+  const active = shared === role.title
   return (
-    <div className="card">
-      <h3 className="text-lg font-semibold">{role.title}</h3>
-      {role.subtitle && <p className="text-sm text-gray-600 mt-1">{role.subtitle}</p>}
-      <div className="mt-3 space-y-2">
-        {role.sections.slice(0,4).map((s, i) => (
-          <div key={i}>
-            <div className="text-xs font-medium text-gray-500">{s.title}</div>
-            <div className="text-sm">{s.content}</div>
-          </div>
-        ))}
+    <div className={`card ${active ? 'ring-2 ring-blue-500' : ''}`}
+      onClick={() => writeStateToUrl({ role: role.title })}>
+      <div className="flex items-start justify-between gap-2">
+        <h3 className="text-lg font-semibold">{role.title}</h3>
+        <button
+          onClick={e => { e.stopPropagation(); toggle(role.title) }}
+          className={"px-2 py-1 rounded border text-xs " + (pinned ? 'bg-black text-white' : 'bg-white')}
+        >{pinned ? 'Pinned' : 'Pin'}</button>
       </div>
-      <div className="mt-3 text-xs text-gray-500">{role.category}</div>
+      {role.subtitle && <p className="text-sm text-gray-600 mt-1">{role.subtitle}</p>}
+      <div className="mt-3 text-xs text-gray-500">{inferTrack(role.title)}</div>
+      <div className="mt-3">
+        <a className="underline text-sm" href={`#role/${slugify(role.title)}`}>Подробнее</a>
+      </div>
     </div>
   )
 }
 
-function SalaryRow({ item }: { item: Salary }) {
-  const region = useStore(s => s.region)
-  const val = item.regions?.[region] ?? '—'
-  return (
-    <div className="flex items-center justify-between card">
-      <div className="font-medium">{item.role}</div>
-      <div className="tabular-nums text-sm">{val}</div>
-    </div>
-  )
-}
-
-export default function App() {
-  const query = useStore(s => s.query)
-  const setQuery = useStore(s => s.setQuery)
-  const region = useStore(s => s.region)
-  const setRegion = useStore(s => s.setRegion)
+export default function App(){
+  const { path, rest } = useRoute()
+  const [tracks, setTracks] = useState<string[]>([])
+  const [queryPick, setQueryPick] = useState<string>('')
 
   const filtered = useMemo(() => {
-    if (!query.trim()) return roles
-    return fuse.search(query).map(r => r.item)
-  }, [query])
+    let list = roles as any[]
+    if (tracks.length) list = list.filter(r => tracks.includes(inferTrack(r.title)))
+    if (queryPick) list = list.filter(r => r.title === queryPick)
+    return list
+  }, [tracks, queryPick])
+
+  if (path === 'role' && rest[0]) return <RolePage slug={rest[0]} />
+  if (path === 'pinboard') return <Pinboard />
+  if (path === 'guide') return <Guide />
+  if (path === 'wizard') return <Wizard />
+  if (path === 'compare') return <ComparePage />
+  if (path === 'compare-plus') return <ComparePlus />
+  if (path === 'charts') return <ChartsPage />
+  if (path === 'levels') return <LevelsPage />
+  if (path === 'path') return <PathPage />
+  if (path === 'resume') return <ResumePage />
+  if (path === 'unmatched') return <Unmatched />
+  if (path === 'health') return <HealthPage />
 
   return (
     <div className="max-w-6xl mx-auto p-4">
       <header className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-2xl font-bold">IT роли и зарплаты • Экспериментальный агрегатор</h1>
-          <p className="text-gray-600 text-sm">Демо, данные из статического HTML. Следующий шаг — подключить обновляемые источники.</p>
+          <h1 className="text-2xl font-bold">IT роли и зарплаты</h1>
+          <div className="text-xs text-gray-500 flex gap-3 flex-wrap">
+            <a href="#guide" className="underline">Guide</a>
+            <a href="#wizard" className="underline">Wizard</a>
+            <a href="#compare" className="underline">Compare</a>
+            <a href="#compare-plus" className="underline">Compare+</a>
+            <a href="#levels" className="underline">Levels</a>
+            <a href="#charts" className="underline">Charts</a>
+            <a href="#path" className="underline">Path</a>
+            <a href="#resume" className="underline">Resume</a>
+            <a href="#pinboard" className="underline">Pinboard</a>
+            <a href="#unmatched" className="underline">Unmatched</a>
+            <a href="#health" className="underline opacity-70">Health</a>
+            <button className="px-2 border rounded" onClick={() => { const url = location.href; navigator.clipboard.writeText(url) }}>Share</button>
+          </div>
         </div>
-        <div className="flex gap-2">
-          {(['usa','eu','russia','china'] as const).map(r => (
-            <button key={r}
-              onClick={() => setRegion(r)}
-              className={"px-3 py-1 rounded border " + (region===r ? "bg-black text-white" : "bg-white")}
-            >
-              {r.toUpperCase()}
-            </button>
-          ))}
+        <div className="flex flex-col gap-2 w-full sm:w-[420px]">
+          <Typeahead onPick={(t) => setQueryPick(t)} />
+          <Filters onChange={setTracks} />
         </div>
       </header>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        <section className="md:col-span-2 space-y-3">
-          <div className="card">
-            <input
-              placeholder="Поиск по ролям, разделам…"
-              value={query}
-              onChange={e => setQuery(e.target.value)}
-              className="w-full border rounded px-3 py-2"
-            />
-          </div>
-          <div className="grid sm:grid-cols-2 gap-3">
-            {filtered.map((role, idx) => <RoleCard key={idx} role={role} />)}
-          </div>
-        </section>
-        <aside className="space-y-3">
-          <div className="card">
-            <div className="text-sm font-semibold mb-2">Зарплатная карта (демо)</div>
-            <div className="space-y-2 max-h-[70vh] overflow-auto pr-1">
-              {salaries.map((s, idx) => <SalaryRow key={idx} item={s} />)}
-            </div>
-          </div>
-          <div className="card text-sm text-gray-600">
-            Данные — из HTML файла. Источники см. <code>/data/sources.md</code>. В реальном приложении подгрузка через ETL в SQLite/JSON.
-          </div>
-        </aside>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {filtered.map((r, i) => <RoleCardInline key={i} role={r} />)}
       </div>
     </div>
   )

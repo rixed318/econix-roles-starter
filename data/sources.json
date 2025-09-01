@@ -1,0 +1,8 @@
+[
+  { "id": "bls-oews", "name": "US BLS OEWS", "region": "USA", "type": "official", "url": "https://www.bls.gov/oes/", "license": "public", "update": "annual" },
+  { "id": "eurostat-ict", "name": "Eurostat ICT", "region": "EU", "type": "official", "url": "https://ec.europa.eu/eurostat/", "license": "public", "update": "annual" },
+  { "id": "ons-ashe", "name": "UK ONS ASHE", "region": "UK", "type": "official", "url": "https://www.ons.gov.uk/", "license": "public", "update": "annual" },
+  { "id": "habr-career", "name": "Habr Career", "region": "RU", "type": "community", "url": "https://career.habr.com/", "license": "report", "update": "semiannual" },
+  { "id": "so-survey", "name": "Stack Overflow Survey", "region": "Global", "type": "community", "url": "https://survey.stackoverflow.co/", "license": "report", "update": "annual" },
+  { "id": "levels-fyi", "name": "Levels.fyi", "region": "Global", "type": "private", "url": "https://www.levels.fyi/", "license": "tos", "update": "rolling" }
+]
