@@ -1,20 +1,32 @@
-# Econix Roles Starter (Vite + React + TS)
+# Econix Roles Starter
 
-Демо-проект, полученный из твоего HTML. Содержит:
-- `data/roles.json` — роли (title/subtitle/sections/category)
-- `data/salaries.json` — зарплаты по регионам (USA/EU/Russia/China)
-- `data/sources.md` — черновик списка источников из HTML
-- Минимальный UI (`src/ui/App.tsx`) с поиском, переключением регионов и карточками
+Агрегатор IT-ролей и зарплат. Основной стек — React + TypeScript + Vite.
 
-## Запуск локально
+## Структура
+- `data/roles.json` — роли
+- `data/salaries.json` — зарплаты по регионам
+- `src/core/schemas.ts` — Zod-схемы и типы
+- Компоненты UI: `src/components/*`
+- Tauri-конфиг для desktop: `src-tauri/`
+
+## Установка и запуск
 ```bash
-pnpm i   # или npm i / yarn
-pnpm dev # http://localhost:5173
+pnpm i        # или npm i / yarn
+pnpm dev      # веб-версия http://localhost:5173
+pnpm build    # сборка web в dist/
+pnpm tauri dev   # desktop (требуется Rust и tauri-cli)
+pnpm tauri build # desktop сборка в src-tauri/target
+pnpm test     # vitest
 ```
 
-## Что дальше (короткий план)
-1. Вынести схемы в `@core/schemas` (Zod), сделать валидацию на старте.
-2. Добавить состояния/фильтры: направления (FE/BE/Data/Sec/ML/DevOps), уровни и т.п.
-3. Подготовить ETL-скрипты (Node/Python) для загрузки официальных источников и выгрузки в `data/*.json` или SQLite.
-4. Подключить Tauri (Rust) для офлайн-кеша и фоновых обновлений.
-5. Сборки: Web (Vite), Desktop (Tauri), позже Mobile (Flutter) с теми же JSON/SQLite снапшотами.
+## Дорожная карта
+- Состояние/валидация: Zustand + Zod
+- UI: React + Tailwind, фокус на доступности
+- Desktop: Tauri (офлайн-кэш и ETL позже)
+- Mobile: Flutter-клиент поверх тех же снапшотов
+
+## Дальше
+- Реестр источников (официальные/частные) и бейджи «verified/official/community»
+- Нормировка зарплат по странам и перцентили
+- Кнопки ссылки на источник рядом с каждым числом
+- ETL-пакет `@core/etl` для обновления JSON/SQLite
