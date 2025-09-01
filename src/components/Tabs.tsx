@@ -8,7 +8,7 @@ export const Tabs: React.FC<Props> = ({ tabs, active, onChange }) => {
   const reduce = usePrefersReducedMotion()
   return (
     <div>
-      <div role="tablist" aria-label="tabs" className="flex gap-2">
+      <div role="tablist" aria-label="Категории" className="flex gap-2">
         {tabs.map((t, i) => (
           <button
             key={t.id}

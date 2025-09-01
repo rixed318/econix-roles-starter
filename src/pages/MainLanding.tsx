@@ -1,14 +1,14 @@
 import React, { useMemo } from 'react'
-import rolesJson from '../data/roles.json'
-import salariesJson from '../data/salaries.json'
-import { RolesSchema, SalariesSchema, Role, Salary } from './core/schemas'
-import { RoleCard } from './components/RoleCard'
-import { SalaryBoard } from './components/SalaryBoard'
-import { SearchBox } from './components/SearchBox'
-import { Tabs, Tab } from './components/Tabs'
-import { useStore } from './core/store'
-import { useI18n } from './i18n'
-import { searchRoles, applyFilters } from './core/utils'
+import rolesJson from '../../data/roles.json'
+import salariesJson from '../../data/salaries.json'
+import { RolesSchema, SalariesSchema, Role, Salary } from '../core/schemas'
+import { RoleCard } from '../components/RoleCard'
+import { SalaryBoard } from '../components/SalaryBoard'
+import { SearchBox } from '../components/SearchBox'
+import { Tabs, Tab } from '../components/Tabs'
+import { useStore } from '../core/store'
+import { useI18n } from '../i18n'
+import { searchRoles, applyFilters } from '../core/utils'
 
 const rolesParsed = RolesSchema.safeParse(rolesJson)
 if (!rolesParsed.success) console.error(rolesParsed.error)
@@ -18,7 +18,7 @@ const salariesParsed = SalariesSchema.safeParse(salariesJson)
 if (!salariesParsed.success) console.error(salariesParsed.error)
 const salaries: Salary[] = salariesParsed.success ? salariesParsed.data : []
 
-export default function App() {
+export default function MainLanding() {
   const query = useStore(s => s.query)
   const filters = useStore(s => s.filters)
   const region = useStore(s => s.activeRegion)
@@ -44,7 +44,9 @@ export default function App() {
         </div>
         <div className="flex gap-2 items-center">
           <Tabs tabs={regionTabs} active={activeIdx} onChange={(i) => setRegion(regions[i])} />
-          <button className="ml-2 border px-2" onClick={() => setLocale(locale === 'ru' ? 'en' : 'ru')}>{locale.toUpperCase()}</button>
+          <button className="border px-2" onClick={() => setLocale(locale === 'ru' ? 'en' : 'ru')}>{locale.toUpperCase()}</button>
+          <a href="#wizard" className="text-sm underline">Wizard</a>
+          <a href="#health" className="text-sm underline opacity-70">Health</a>
         </div>
       </header>
       <main id="main" className="grid md:grid-cols-3 gap-6">

@@ -14,8 +14,8 @@
 pnpm i        # или npm i / yarn
 pnpm dev      # веб-версия http://localhost:5173
 pnpm build    # сборка web в dist/
-pnpm tauri dev   # desktop (требуется Rust и tauri-cli)
-pnpm tauri build # desktop сборка в src-tauri/target
+pnpm tauri:dev   # desktop (требуется Rust и tauri-cli)
+pnpm tauri:build # desktop сборка в src-tauri/target
 pnpm test     # vitest
 ```
 
