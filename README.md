@@ -17,6 +17,7 @@ pnpm build    # сборка web в dist/
 pnpm tauri:dev   # desktop (требуется Rust и tauri-cli)
 pnpm tauri:build # desktop сборка в src-tauri/target
 pnpm test     # vitest
+pnpm etl:all  # собрать salaries.json и econix.db из CSV
 ```
 
 ## Дорожная карта

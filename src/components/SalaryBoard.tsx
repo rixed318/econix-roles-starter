@@ -6,6 +6,8 @@ import { toCSV, toMarkdownTable, downloadBlob } from '../core/export'
 import { normalizeDisplay } from '../core/pay'
 import sources from '../../data/sources.json'
 
+const sourceMap = Object.fromEntries((sources as any[]).map((s: any) => [s.id, s]))
+
 export const SalaryBoard: React.FC<{ items: Salary[] }> = ({ items }) => {
   const region = useStore(s => s.activeRegion)
   const { t } = useI18n()
@@ -24,9 +26,6 @@ export const SalaryBoard: React.FC<{ items: Salary[] }> = ({ items }) => {
     downloadBlob(new Blob([md], { type: 'text/markdown;charset=utf-8;' }), 'salaries.md')
   }
 
-  const regionMap: Record<string, string> = { usa: 'USA', eu: 'EU', russia: 'RU', china: 'CN' }
-  const source = (sources as any[]).find(s => s.region === regionMap[region]) || (sources as any[]).find(s => s.region === 'Global')
-
   return (
     <div className="card">
       <div className="flex items-center justify-between mb-2">
@@ -41,18 +40,30 @@ export const SalaryBoard: React.FC<{ items: Salary[] }> = ({ items }) => {
           const value = s.regions?.[region]
           const norm = value ? normalizeDisplay(value) : {}
           const title = norm.usdPerMonth ? `≈ $${norm.usdPerMonth} / month (нормализация)` : undefined
+          const meta = (s as any).sourceMeta?.[region]
+          const info = meta ? (sourceMap as any)[meta.sourceId] : null
+          const href = meta?.url || info?.url
+          const label = info?.name || meta?.sourceId
           return (
             <div key={idx} className="flex items-center justify-between">
               <div className="font-medium">{s.role}</div>
               <div className="tabular-nums text-sm" title={title}>
                 {value ?? '—'}
-                {value && source && (
-                  <a
-                    href={source.url}
-                    target="_blank"
-                    className="ml-1 text-[10px] underline"
-                    rel="noreferrer"
-                  >Источник: {source.name}</a>
+                {value && (
+                  meta ? (
+                    href ? (
+                      <a
+                        href={href}
+                        target="_blank"
+                        className="ml-1 text-[10px] underline"
+                        rel="noreferrer"
+                      >{label}</a>
+                    ) : (
+                      <span className="ml-1 text-[10px] underline">{label}</span>
+                    )
+                  ) : (
+                    <span className="ml-1 text-[10px] opacity-60">derived</span>
+                  )
                 )}
               </div>
             </div>

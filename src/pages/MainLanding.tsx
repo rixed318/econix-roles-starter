@@ -46,6 +46,7 @@ export default function MainLanding() {
           <Tabs tabs={regionTabs} active={activeIdx} onChange={(i) => setRegion(regions[i])} />
           <button className="border px-2" onClick={() => setLocale(locale === 'ru' ? 'en' : 'ru')}>{locale.toUpperCase()}</button>
           <a href="#wizard" className="text-sm underline">Wizard</a>
+          <a href="#compare" className="text-sm underline">Compare</a>
           <a href="#health" className="text-sm underline opacity-70">Health</a>
         </div>
       </header>

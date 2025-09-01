@@ -2,13 +2,15 @@
   "name": "econix-roles",
   "private": true,
   "version": "0.1.0",
+  "packageManager": "pnpm@9.7.0",
   "type": "module",
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "zustand": "^4.5.2",
     "zod": "^3.23.8",
-    "fuse.js": "^7.0.0"
+    "fuse.js": "^7.0.0",
+    "sql.js": "^1.10.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.6",
@@ -17,13 +19,15 @@
     "@types/node": "^22.5.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@types/sql.js": "^1.4.7",
     "autoprefixer": "^10.4.20",
     "jsdom": "^25.0.0",
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.10",
     "typescript": "^5.4.5",
     "vite": "^5.4.0",
-    "vitest": "^2.0.5"
+    "vitest": "^2.0.5",
+    "tsx": "^4.15.7"
   },
   "scripts": {
     "dev": "vite",
@@ -32,6 +36,11 @@
     "test": "vitest run --coverage",
     "test:watch": "vitest",
     "tauri:dev": "tauri dev",
-    "tauri:build": "tauri build"
+    "tauri:build": "tauri build",
+    "etl:bls": "tsx scripts/etl/bls.ts",
+    "etl:eurostat": "tsx scripts/etl/eurostat.ts",
+    "etl:merge": "tsx scripts/etl/merge.ts",
+    "etl:db": "tsx scripts/etl/build-sqlite.ts",
+    "etl:all": "pnpm etl:bls && pnpm etl:eurostat && pnpm etl:merge && pnpm etl:db"
   }
 }

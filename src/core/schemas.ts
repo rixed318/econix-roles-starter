@@ -15,6 +15,9 @@ export const RoleSchema = z.object({
 export const SalarySchema = z.object({
   role: z.string(),
   regions: z.record(z.string(), z.string()).default({}),
+  sourceMeta: z
+    .record(z.string(), z.object({ sourceId: z.string(), url: z.string().optional() }))
+    .optional(),
 })
 
 export const RolesSchema = z.array(RoleSchema)
