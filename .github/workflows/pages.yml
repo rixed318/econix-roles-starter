@@ -17,9 +17,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: 'npm' }
-      - run: npm i --no-audit --fund=false || true
-      - run: npm run etl:all || true
-      - run: npm run build
+      - name: Install deps
+        run: |
+          npm ci --no-audit --fund=false || npm i --no-audit --fund=false
+      - name: Build ETL snapshot
+        run: npm run etl:all
+      - name: Build web
+        run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with: { path: ./dist }
   deploy:

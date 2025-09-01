@@ -10,3 +10,8 @@
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
+
+@media (prefers-color-scheme: dark) {
+  body { background: #0b0c0f; color: #e5e7eb; }
+  .card { background: #111317; border-color: #1f2937; }
+}
