@@ -10,7 +10,10 @@
     "zustand": "^4.5.2",
     "zod": "^3.23.8",
     "fuse.js": "^7.0.0",
-    "sql.js": "^1.10.2"
+    "sql.js": "^1.10.2",
+    "cheerio": "^1.0.0",
+    "fast-xml-parser": "^4.5.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
@@ -38,10 +41,12 @@
     "test:watch": "vitest",
     "tauri:dev": "tauri dev",
     "tauri:build": "tauri build",
-    "etl:bls": "tsx scripts/etl/bls.ts",
+    "etl:fx": "tsx scripts/etl/fx-ecb.ts",
+    "etl:bls": "tsx scripts/etl/bls-national.ts",
+    "etl:ons": "tsx scripts/etl/ons-ashe.ts",
     "etl:eurostat": "tsx scripts/etl/eurostat.ts",
     "etl:merge": "tsx scripts/etl/merge.ts",
     "etl:db": "tsx scripts/etl/build-sqlite.ts",
-    "etl:all": "tsx scripts/etl/bls.ts && tsx scripts/etl/eurostat.ts && tsx scripts/etl/merge.ts && tsx scripts/etl/build-sqlite.ts && node scripts/copy-db.js"
+    "etl:all": "tsx scripts/etl/fx-ecb.ts && tsx scripts/etl/bls-national.ts && tsx scripts/etl/ons-ashe.ts && tsx scripts/etl/eurostat.ts && tsx scripts/etl/merge.ts && tsx scripts/etl/build-sqlite.ts && node scripts/copy-db.js"
   }
 }

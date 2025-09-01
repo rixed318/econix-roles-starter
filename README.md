@@ -17,7 +17,13 @@ pnpm build    # сборка web в dist/
 pnpm tauri:dev   # desktop (требуется Rust и tauri-cli)
 pnpm tauri:build # desktop сборка в src-tauri/target
 pnpm test     # vitest
-pnpm etl:all  # собрать salaries.json и econix.db из CSV и скопировать в public/data/
+pnpm etl:fx   # курсы валют ECB → data/tmp/fx.json
+pnpm etl:bls  # BLS OEWS таблица 1 → tmp/bls.json
+pnpm etl:ons  # ONS ASHE table14 → tmp/ons.json
+pnpm etl:eurostat # Eurostat earn_gr_isco → tmp/eurostat.json
+pnpm etl:merge # объединение и нормализация
+pnpm etl:db   # сборка econix.db и копирование в public/data/
+pnpm etl:all  # выполнить все шаги выше
 ```
 
 ## Package manager
@@ -27,6 +33,14 @@ pnpm etl:all  # собрать salaries.json и econix.db из CSV и скопи
 CI автоматически падает на npm, если pnpm недоступен. Не запускайте `npm install --package-lock-only` — он требует доступ к registry и часто блокируется корпоративным прокси.
 
 После `npm run etl:all` снапшот `data/econix.db` копируется в `public/data/`. Страница `/compare` покажет столбцы `—`, если файл отсутствует.
+
+## Sources
+- [BLS OEWS 2024 Table 1](https://www.bls.gov/news.release/ocwage.t01.htm)
+- [ONS ASHE 2024 Table 14](https://www.ons.gov.uk/)
+- [Eurostat earn_gr_isco / SES](https://ec.europa.eu/eurostat/)
+- [ECB eurofxref](https://www.ecb.europa.eu/stats/eurofxref/)
+
+Данные используются согласно публичным лицензиям соответствующих источников.
 
 ## Дорожная карта
 - Состояние/валидация: Zustand + Zod

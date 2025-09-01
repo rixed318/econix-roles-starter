@@ -12,7 +12,7 @@ async function main() {
 
   db.run(`CREATE TABLE roles (id INTEGER PRIMARY KEY, title TEXT, subtitle TEXT, category TEXT)`)
   db.run(`CREATE TABLE role_sections (role_id INTEGER, title TEXT, content TEXT)`)
-  db.run(`CREATE TABLE salaries (role TEXT, region TEXT, value TEXT)`)
+  db.run(`CREATE TABLE salaries (role TEXT, region TEXT, value TEXT, p10 TEXT, p90 TEXT, usdpm REAL)`)
   db.run(`CREATE TABLE sources (id TEXT PRIMARY KEY, name TEXT, region TEXT, type TEXT, url TEXT, license TEXT, update_freq TEXT)`)
 
   const insRole = db.prepare('INSERT INTO roles(title, subtitle, category) VALUES (?,?,?)')
@@ -37,10 +37,14 @@ async function main() {
   })
   insSec.free()
 
-  const insSal = db.prepare('INSERT INTO salaries(role, region, value) VALUES (?,?,?)')
+  const insSal = db.prepare('INSERT INTO salaries(role, region, value, p10, p90, usdpm) VALUES (?,?,?,?,?,?)')
   salaries.forEach((s: any) => {
-    for (const [region, value] of Object.entries(s.regions ?? {})) {
-      insSal.run([s.role, region, value as string])
+    for (const [region, entry] of Object.entries(s.regions ?? {})) {
+      if (typeof entry === 'string') {
+        insSal.run([s.role, region, entry, null, null, null])
+      } else {
+        insSal.run([s.role, region, entry.value, entry.p10 ?? null, entry.p90 ?? null, entry.usdpm ?? null])
+      }
     }
   })
   insSal.free()

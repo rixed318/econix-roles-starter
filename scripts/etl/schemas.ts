@@ -7,9 +7,13 @@ export type CanonSalary = {
   url?: string
   observedAt?: string    // ISO date
   license?: string
+  p10?: string
+  p90?: string
 }
+export type RegionSalary = { value: string; usdpm?: number; p10?: string; p90?: string }
 export type MergeRow = {
   role: string
-  regions: Partial<Record<Region, string>>
+  regions: Partial<Record<Region, RegionSalary>>
   sourceMeta?: Partial<Record<Region, {sourceId: string, url?: string}>>
+  fxDate?: string
 }

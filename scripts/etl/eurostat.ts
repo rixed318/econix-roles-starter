@@ -1,44 +1,28 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { CanonSalary } from './schemas'
 
-const URL = process.env.EUROSTAT_URL || 'file://sources/eurostat/ict-earnings-2024.csv'
+const SRC = process.env.EUROSTAT_TSV || 'sources/eurostat/earn_gr_isco.tsv'
 const OUT = path.resolve('data/tmp/eurostat.json')
 fs.mkdirSync(path.dirname(OUT), { recursive: true })
 
-function parseCSV(text: string) {
-  const lines = text.trim().split(/\r?\n/)
-  const header = lines.shift()!.split(',')
-  const out: Record<string, string>[] = []
-  for (const line of lines) {
-    const cols = line.split(',')
-    const row: Record<string, string> = {}
-    header.forEach((h, i) => row[h.trim()] = cols[i]?.trim() ?? '')
-    out.push(row)
+function parseTSV(tsv: string) {
+  const lines = tsv.trim().split(/\r?\n/)
+  const out:any[]=[]
+  for (let i=1;i<lines.length;i++){
+    const [key, val] = lines[i].split('\t')
+    const parts = key.split(',')
+    const country = parts[0], isco = parts[2], year = parts.at(-1)
+    const amount = val?.trim()
+    if (!amount || !year?.includes('202')) continue
+    out.push({ role: isco, region: 'eu', value: `€${amount}/yr`, sourceId: 'eurostat-earn_gr_isco' })
   }
   return out
 }
 
-async function main() {
-  let text: string
-  if (URL.startsWith('file://')) {
-    const p = URL.replace('file://', '')
-    text = fs.readFileSync(p, 'utf-8')
-  } else {
-    text = fs.readFileSync('sources/eurostat/ict-earnings-2024.csv', 'utf-8')
-  }
-
-  const rows = parseCSV(text)
-  const data: CanonSalary[] = rows.flatMap(r => {
-    if (!r['occupation'] || !r['median_monthly_eur']) return []
-    return [{
-      role: r['occupation'],
-      region: 'eu',
-      value: `€${r['median_monthly_eur']}/mo`,
-      sourceId: 'eurostat-ict-2024'
-    }]
-  })
-  fs.writeFileSync(OUT, JSON.stringify(data, null, 2), 'utf-8')
-  console.log(`Wrote ${OUT} (${data.length})`)
+async function main(){
+  const tsv = fs.readFileSync(SRC,'utf-8')
+  const rows = parseTSV(tsv)
+  fs.writeFileSync(OUT, JSON.stringify(rows, null, 2),'utf-8')
+  console.log(`Eurostat rows: ${rows.length} \u2192 ${OUT}`)
 }
 main().catch(e => { console.error(e); process.exit(1) })

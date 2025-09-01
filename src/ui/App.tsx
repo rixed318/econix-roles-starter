@@ -1,6 +1,7 @@
 import HealthPage from '../pages/Health'
 import Wizard from '../pages/Wizard'
 import ComparePage from '../pages/Compare'
+import ComparePlus from '../pages/ComparePlus'
 import MainLanding from '../pages/MainLanding'
 import { useHash } from './routes'
 
@@ -14,5 +15,7 @@ export default function App() {
     ? <Wizard />
     : route === 'compare'
     ? <ComparePage />
+    : route === 'compare-plus'
+    ? <ComparePlus />
     : <Home />
 }

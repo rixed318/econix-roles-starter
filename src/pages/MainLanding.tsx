@@ -47,6 +47,7 @@ export default function MainLanding() {
           <button className="border px-2" onClick={() => setLocale(locale === 'ru' ? 'en' : 'ru')}>{locale.toUpperCase()}</button>
           <a href="#wizard" className="text-sm underline">Wizard</a>
           <a href="#compare" className="text-sm underline">Compare</a>
+          <a href="#compare-plus" className="text-sm underline">Compare+</a>
           <a href="#health" className="text-sm underline opacity-70">Health</a>
         </div>
       </header>

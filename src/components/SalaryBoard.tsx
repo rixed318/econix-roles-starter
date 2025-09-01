@@ -14,10 +14,10 @@ export const SalaryBoard: React.FC<{ items: Salary[] }> = ({ items }) => {
 
   const rows = items.map(s => ({
     role: s.role,
-    USA: s.regions.usa ?? '',
-    EU: s.regions.eu ?? '',
-    Russia: s.regions.russia ?? '',
-    China: s.regions.china ?? ''
+    USA: typeof s.regions.usa === 'string' ? s.regions.usa : s.regions.usa?.value ?? '',
+    EU: typeof s.regions.eu === 'string' ? s.regions.eu : s.regions.eu?.value ?? '',
+    Russia: typeof s.regions.russia === 'string' ? s.regions.russia : s.regions.russia?.value ?? '',
+    China: typeof s.regions.china === 'string' ? s.regions.china : s.regions.china?.value ?? ''
   }))
 
   const exportCSV = () => downloadBlob(toCSV(rows), 'salaries.csv')
@@ -37,8 +37,10 @@ export const SalaryBoard: React.FC<{ items: Salary[] }> = ({ items }) => {
       </div>
       <div className="space-y-2 max-h-[70vh] overflow-auto pr-1">
         {items.map((s, idx) => {
-          const value = s.regions?.[region]
-          const norm = value ? normalizeDisplay(value) : {}
+          const entry: any = s.regions?.[region]
+          const value = typeof entry === 'string' ? entry : entry?.value
+          const usdpm = typeof entry === 'object' ? entry?.usdpm : undefined
+          const norm = usdpm ? { usdPerMonth: usdpm } : value ? normalizeDisplay(value) : {}
           const title = norm.usdPerMonth ? `≈ $${norm.usdPerMonth} / month (нормализация)` : undefined
           const meta = (s as any).sourceMeta?.[region]
           const info = meta ? (sourceMap as any)[meta.sourceId] : null

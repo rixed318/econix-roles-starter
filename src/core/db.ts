@@ -17,8 +17,26 @@ export async function openDb(): Promise<Database> {
 
 export async function getSalariesByRegion(region: string) {
   const db = await openDb()
-  const res = db.exec(`SELECT role, value FROM salaries WHERE region = ?`, [region])
+  const res = db.exec(`SELECT role, value, p10, p90, usdpm FROM salaries WHERE region = ?`, [region])
   if (!res.length) return []
   const [table] = res
-  return table.values.map(v => ({ role: String(v[0]), value: String(v[1]) }))
+  return table.values.map(v => ({
+    role: String(v[0]),
+    value: String(v[1]),
+    p10: v[2] ? String(v[2]) : undefined,
+    p90: v[3] ? String(v[3]) : undefined,
+    usdpm: v[4] != null ? Number(v[4]) : undefined
+  }))
+}
+
+export async function getFxDate(): Promise<string | undefined> {
+  try {
+    const resp = await fetch('/data/fx.json')
+    if (!resp.ok) return undefined
+    const j = await resp.json()
+    const dates = Object.keys(j).sort()
+    return dates[dates.length - 1]
+  } catch {
+    return undefined
+  }
 }

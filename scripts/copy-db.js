@@ -12,3 +12,10 @@ if (!fs.existsSync(src)) {
 fs.mkdirSync(destDir, { recursive: true })
 fs.copyFileSync(src, dest)
 console.log(`[copy-db] скопировано → ${path.relative(process.cwd(), dest)}`)
+
+const fxSrc = path.resolve('data/tmp/fx.json')
+if (fs.existsSync(fxSrc)) {
+  const fxDest = path.join(destDir, 'fx.json')
+  fs.copyFileSync(fxSrc, fxDest)
+  console.log(`[copy-db] скопировано → ${path.relative(process.cwd(), fxDest)}`)
+}
