@@ -5,7 +5,8 @@ let _db: Database | null = null
 export async function openDb(): Promise<Database> {
   if (_db) return _db
   const SQL = await initSqlJs()
-  const resp = await fetch('/data/econix.db').catch(() => null)
+  const base = import.meta.env.BASE_URL || '/'
+  const resp = await fetch(`${base}data/econix.db`).catch(() => null)
   if (resp && resp.ok) {
     const buf = await resp.arrayBuffer()
     _db = new SQL.Database(new Uint8Array(buf))
@@ -31,7 +32,8 @@ export async function getSalariesByRegion(region: string) {
 
 export async function getFxDate(): Promise<string | undefined> {
   try {
-    const resp = await fetch('/data/fx.json')
+    const base = import.meta.env.BASE_URL || '/'
+    const resp = await fetch(`${base}data/fx.json`)
     if (!resp.ok) return undefined
     const j = await resp.json()
     const dates = Object.keys(j).sort()

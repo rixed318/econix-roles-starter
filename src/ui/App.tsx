@@ -2,6 +2,9 @@ import HealthPage from '../pages/Health'
 import Wizard from '../pages/Wizard'
 import ComparePage from '../pages/Compare'
 import ComparePlus from '../pages/ComparePlus'
+import Guide from '../pages/Guide'
+import ChartsPage from '../pages/Charts'
+import Unmatched from '../pages/Unmatched'
 import MainLanding from '../pages/MainLanding'
 import { useHash } from './routes'
 
@@ -17,5 +20,11 @@ export default function App() {
     ? <ComparePage />
     : route === 'compare-plus'
     ? <ComparePlus />
+    : route === 'guide'
+    ? <Guide />
+    : route === 'charts'
+    ? <ChartsPage />
+    : route === 'unmatched'
+    ? <Unmatched />
     : <Home />
 }

@@ -42,6 +42,9 @@ CI автоматически падает на npm, если pnpm недост�
 
 Данные используются согласно публичным лицензиям соответствующих источников.
 
+## Deployment
+После пуша в `main` сайт автоматически публикуется на [GitHub Pages](https://rixed318.github.io/econix-roles-starter/). Vite использует базовый путь `/econix-roles-starter/`.
+
 ## Дорожная карта
 - Состояние/валидация: Zustand + Zod
 - UI: React + Tailwind, фокус на доступности

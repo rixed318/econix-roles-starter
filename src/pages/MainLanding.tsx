@@ -48,6 +48,9 @@ export default function MainLanding() {
           <a href="#wizard" className="text-sm underline">Wizard</a>
           <a href="#compare" className="text-sm underline">Compare</a>
           <a href="#compare-plus" className="text-sm underline">Compare+</a>
+          <a href="#charts" className="text-sm underline">Charts</a>
+          <a href="#guide" className="text-sm underline">Guide</a>
+          <a href="#unmatched" className="text-sm underline opacity-70">Unmatched</a>
           <a href="#health" className="text-sm underline opacity-70">Health</a>
         </div>
       </header>
