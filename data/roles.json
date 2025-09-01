@@ -1,0 +1,686 @@
+[
+  {
+    "title": "Frontend Engineer",
+    "subtitle": "Инженер интерфейсов. Делает UI/UX живыми в браузере.",
+    "category": "II. Роли в приложениях (Product Engineering)",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Верстка, компоненты, состояния, маршрутизация, доступность, тесты, оптимизация производительности"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Скорость загрузки, стабильность, конверсия/retention, UX-метрики"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Full-stack, Frontend-архитектор, Design Systems"
+      }
+    ]
+  },
+  {
+    "title": "Backend Engineer",
+    "subtitle": "Пишет серверную логику и API",
+    "category": "Frontend Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Проектирование API/схем, транзакции, очереди, кэширование, авторизация, интеграции, миграции БД"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Латентность, надежность (SLO/SLI), стоимость, безопасность"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Full-stack, Tech Lead, Platform, SRE"
+      }
+    ]
+  },
+  {
+    "title": "Full-stack Engineer",
+    "subtitle": "Закрывает фронт+бэк на уровне продакшна",
+    "category": "Backend Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Быстрые фичи end-to-end, небольшая архитектура, CI/CD, эксперименты A/B"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Скорость поставки, качество, стабильность фичей"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Team/Tech Lead, Product-oriented Staff, Founder/Indie"
+      }
+    ]
+  },
+  {
+    "title": "Mobile Engineer",
+    "subtitle": "Нативные или кроссплатформенные приложения",
+    "category": "Full-stack Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "UI-киты, офлайн/синхронизация, пуши, перфоманс и батарея, публикации в сторах"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Рейтинг в сторах, crash-free rate, перфоманс, юзабилити"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Tech Lead Mobile, Product, Cross-platform"
+      }
+    ]
+  },
+  {
+    "title": "Desktop Engineer",
+    "subtitle": "Настольные приложения",
+    "category": "Mobile Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Нативные интеграции ОС, автообновления, офлайн-режим"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Стабильность, потребление памяти/CPU, UX"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Platform tooling, Full-stack desktop/web"
+      }
+    ]
+  },
+  {
+    "title": "Game Developer",
+    "subtitle": "Разработка игр, механики, движки",
+    "category": "Desktop Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Геймплей, физика, мультиплеер, пайплайны контента"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "FPS/латентность, метрики удержания, монетизация"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Engine dev, Tech Artist, Tools/Editor Dev"
+      }
+    ]
+  },
+  {
+    "title": "QA/Automation Engineer (SDET)",
+    "subtitle": "Инженер по качеству с уклоном в разработку",
+    "category": "Game Developer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Автотесты (UI/APIs), стратегии тестирования, тест-данные, нагрузочные/безопасностные проверки"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Регресс-дефекты, покрытие, MTTR багов"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "SDET Lead, Platform testing, Reliability"
+      }
+    ]
+  },
+  {
+    "title": "DevOps Engineer",
+    "subtitle": "Автоматизирует сборку/деплой, инфраструктуру как код",
+    "category": "III. Инфраструктура",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "CI/CD, Docker/Kubernetes, Terraform, секреты, артефакты"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Время поставки, частота релизов, отказоустойчивость"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "SRE, Platform, Cloud"
+      }
+    ]
+  },
+  {
+    "title": "SRE (Site Reliability Engineer)",
+    "subtitle": "Держит прод живым и предсказуемым",
+    "category": "DevOps Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "SLI/SLO, алерты, пост-мортемы, нагрузочное/хаос-тестирование, оптимизация стоимости"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Аптайм, ошибка-бюджет, MTTR/MTTD, cost/req"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Staff SRE, Platform, Production Engineering"
+      }
+    ]
+  },
+  {
+    "title": "Cloud/Infra Engineer",
+    "subtitle": "Проектирует облако/сети/хранилища",
+    "category": "SRE (Site Reliability Engineer)",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "VPC/подсети, IAM, балансировщики, VPN, DR-планы"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Безопасность/стоимость/надежность инфраструктуры"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Cloud Security, SRE, Platform"
+      }
+    ]
+  },
+  {
+    "title": "Platform Engineer",
+    "subtitle": "Строит внутреннюю платформу и DX (dev experience)",
+    "category": "Cloud/Infra Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Шаблоны сервисов, build-системы, SDK/CLIs, политики, централизованные пайплайны"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Скорость онбординга, MTTR фич, reuse"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Staff/Principal Platform, Eng Manager, CTO-track"
+      }
+    ]
+  },
+  {
+    "title": "Observability/FinOps Engineer",
+    "subtitle": "Видимость систем и управление затратами",
+    "category": "Platform Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Трассировка, логирование, профилирование, биллинг/аллокаторы затрат, бюджет-алерты"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Снижение стоимости, скорость RCA, сигнал-к-шуму"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "SRE, Platform, Cloud"
+      }
+    ]
+  },
+  {
+    "title": "Data Analyst",
+    "subtitle": "Отвечает на бизнес-вопросы с помощью данных",
+    "category": "IV. Данные и AI",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "SQL, дашборды, когортный анализ, A/B-эксперименты"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Точность инсайтов, скорость, применимость для решений"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Analytics/BI Engineer, Product Analyst"
+      }
+    ]
+  },
+  {
+    "title": "Analytics/BI Engineer",
+    "subtitle": "Продуктовые модели данных и слой семантики",
+    "category": "Data Analyst",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Моделирование, метрики, dbt/ETL, версионирование данных, проверка качества"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Достоверность метрик, SLAs датасетов, self-serve BI"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Data Engineer, Analytics Lead"
+      }
+    ]
+  },
+  {
+    "title": "Data Engineer",
+    "subtitle": "Конвейеры данных и платформы",
+    "category": "Analytics/BI Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Стриминг/батчи, оркестрация, схемы, хранилища, CDC"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Надежность пайплайнов, свежесть, стоимость/масштабируемость"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "MLE/MLOps, Platform Data, Staff DE"
+      }
+    ]
+  },
+  {
+    "title": "Data Scientist",
+    "subtitle": "Статистика/модели/прототипы для решений",
+    "category": "Data Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Фичеринг, тренинг моделей, каузальный анализ, эксперимент-дизайн"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Lift/ROI от моделей, обоснованность выводов"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "ML Engineer, Applied Scientist"
+      }
+    ]
+  },
+  {
+    "title": "ML Engineer (Applied)",
+    "subtitle": "Доводит модели до продакшна",
+    "category": "Data Scientist",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Сервинг/скейлинг, оптимизация латентности/стоимости, A/B, мониторинг дрейфа"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Качество/латентность/стоимость инференса, стабильность"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Staff MLE, Platform ML, Tech Lead AI"
+      }
+    ]
+  },
+  {
+    "title": "Research Scientist (ML/AI)",
+    "subtitle": "Исследования и новые методы/архитектуры",
+    "category": "ML Engineer (Applied)",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Чтение/репродукция статей, эксперименты, публикации, открытые датасеты"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "SOTA/публикации/патенты/вклад в продукт"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Staff Research, Architect, Applied Science Lead"
+      }
+    ]
+  },
+  {
+    "title": "MLOps / LLMOps Engineer",
+    "subtitle": "Автоматизация жизненного цикла ML/LLM",
+    "category": "Research Scientist (ML/AI)",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Фичесторы, репродусибельность, ML-платформы, модельные регистры, CI/CD моделей, безопасность/оценка LLM"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Время от идеи до прод, стабильность качества, соответствие политикам"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Platform ML, Staff MLOps, AI Safety/Alignment Eng"
+      }
+    ]
+  },
+  {
+    "title": "Prompt/Applied LLM Engineer",
+    "subtitle": "Прикладные LLM-продукты (RAG-системы, агенты)",
+    "category": "MLOps / LLMOps Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Проектирование подсказок/инструментов, схемы контекстов, гардрейлы, оффлайн-оценка"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Качество ответов, устойчивость к джейлбрейкам, стоимость токена/запроса"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "MLE/LLMOps, Product-oriented Staff"
+      }
+    ]
+  },
+  {
+    "title": "AppSec / Product Security Engineer",
+    "subtitle": "Защищает приложения и SDLC",
+    "category": "V. Безопасность (Security)",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Threat-моделирование, ревью кода, SAST/DAST, секреты, SBOM, подписи артефактов"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Время устранения уязвимостей, покрытие политик/сканов"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Security Architect, Cloud Sec, GRC"
+      }
+    ]
+  },
+  {
+    "title": "Security Engineer (Blue Team/IR)",
+    "subtitle": "Защита/детекция/реагирование",
+    "category": "AppSec / Product Security Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "SIEM/EDR, плейбуки, хантинг, расследования инцидентов"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "MTTD/MTTR, снижение инцидентов, качество детекций"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "SecOps Lead, Detection Engineering"
+      }
+    ]
+  },
+  {
+    "title": "Red Team / Offensive Security",
+    "subtitle": "Контролируемые атаки и пентесты",
+    "category": "Security Engineer (Blue Team/IR)",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Оценка периметра/внутренней сети/веб-приложений, эксплуатация уязвимостей, отчеты/ремедиация"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Найденные критические уязвимости, качество рекомендаций"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "AppSec, Purple Team, Adversary Simulation"
+      }
+    ]
+  },
+  {
+    "title": "Cloud Security Engineer",
+    "subtitle": "Защита облачных окружений",
+    "category": "Red Team / Offensive Security",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "IAM/лесочки, сетевые политики, KMS, конфиг-сканы, секрет-менеджмент, zero-trust"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Сниженная поверхность атаки, комплаенс-соответствие"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Security Architect, SRE/Sec-Platform"
+      }
+    ]
+  },
+  {
+    "title": "GRC / Privacy Engineer",
+    "subtitle": "Политики, стандарты, соответствие (GDPR/AI-Act/ISO/SoC2)",
+    "category": "Cloud Security Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Риск-оценки, аудит, DPIA, контроль доступа, документация"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Прохождение аудитов, снижение рисков, зрелость процессов"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Head of Security/Compliance, Privacy Lead"
+      }
+    ]
+  },
+  {
+    "title": "Systems/Kernel Engineer",
+    "subtitle": "Низкоуровневая разработка ОС/драйверов/IPC",
+    "category": "VI. Системы и железо",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Профилирование, lock-free структуры, планировщики, файловые системы"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Латентность/пропускная, стабильность ядра/модулей"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Performance Eng, Compiler/Tooling, Infra Architect"
+      }
+    ]
+  },
+  {
+    "title": "Networking Engineer (Software)",
+    "subtitle": "Сетевые стеки/прокси/балансировщики",
+    "category": "Systems/Kernel Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Протоколы L4/L7, TLS, QUIC, NAT, observability сетей"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "p99 латентность, устойчивость, пропускная"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "SRE, Systems, Performance"
+      }
+    ]
+  },
+  {
+    "title": "Embedded/IoT/RTOS",
+    "subtitle": "Прошивки/контроллеры/реал-тайм системы",
+    "category": "Networking Engineer (Software)",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Драйверы датчиков, энергоэффективность, протоколы связи"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Стабильность, энергопотребление, сертификация"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Robotics, Automotive, Security (firmware)"
+      }
+    ]
+  },
+  {
+    "title": "GPU/HPC Engineer",
+    "subtitle": "Ускорение вычислений/ML/графики",
+    "category": "Embedded/IoT/RTOS",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "CUDA/ROCm, планирование на GPU, оптимизация памяти/ядра"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Ускорение/стоимость за итерацию, утилизация GPU"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "MLE Perf, Systems for ML, Compilers"
+      }
+    ]
+  },
+  {
+    "title": "Compilers/Toolchains Engineer",
+    "subtitle": "Компиляторы/линкеры/рантаймы",
+    "category": "GPU/HPC Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Оптимизации, генерация кода, промежуточные представления (IR)"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Производительность/размер/совместимость"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Language/Runtime Eng, HPC, Systems"
+      }
+    ]
+  },
+  {
+    "title": "Performance/Latency Engineer",
+    "subtitle": "Выжимает максимум производительности",
+    "category": "Compilers/Toolchains Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Профилирование end-to-end, кеши, NUMA, lock contention"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Снижение p99/p999, TCO, стабильность под нагрузкой"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Systems, Quant Infra, Staff/Principal Perf"
+      }
+    ]
+  },
+  {
+    "title": "Quant/Algorithmic Trading Engineer",
+    "subtitle": "Низкие задержки + надежность + математика денег",
+    "category": "VII. Доменные ниши",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Каналы маркет-данных, стратегии, симуляции, риск-лимиты, комплаенс"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Доходность и риск-профиль, стабильность/латентность"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Strategy Eng, Research, Perf/Infra"
+      }
+    ]
+  },
+  {
+    "title": "Automotive/ADAS Engineer",
+    "subtitle": "Perception/планирование/управление, сертификация",
+    "category": "Quant/Algorithmic Trading Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Сенсорные стеки, симуляции, safety-кейс"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Безопасность, точность, сертификация"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Robotics, Embedded Safety, MLE Perception"
+      }
+    ]
+  },
+  {
+    "title": "MedTech/Bioinformatics Engineer",
+    "subtitle": "Софт для медицины/геномики/диагностики",
+    "category": "Automotive/ADAS Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Пайплайны данных, соответствие нормам (HIPAA/GDPR), валидация"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Точность, валидация, регуляторное соответствие"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Data/ML в здравоохранении, Privacy Eng"
+      }
+    ]
+  },
+  {
+    "title": "AR/VR/XR Engineer",
+    "subtitle": "Визуал/сенсоры/интерактивность в реальном времени",
+    "category": "MedTech/Bioinformatics Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Рендеринг, SLAM/трекинг, UX в 3D"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "FPS/латентность, UX-качество, снижение укачивания"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "Graphics/GPU, Game/Engine Dev"
+      }
+    ]
+  },
+  {
+    "title": "Blockchain/Web3 Engineer",
+    "subtitle": "Смарт-контракты, криптопротоколы, DeFi (волатильно)",
+    "category": "AR/VR/XR Engineer",
+    "sections": [
+      {
+        "title": "Ежедневная работа",
+        "content": "Аудиты контрактов, токеномика, мосты/кошельки"
+      },
+      {
+        "title": "Метрики успеха",
+        "content": "Безопасность, ликвидность/объемы, adoption"
+      },
+      {
+        "title": "Карьерный рост",
+        "content": "AppSec/Web3 Sec, Protocol Eng"
+      }
+    ]
+  }
+]

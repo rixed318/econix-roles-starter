@@ -1,0 +1,182 @@
+[
+  {
+    "role": "Frontend Engineer",
+    "regions": {
+      "usa": "$145,000/год",
+      "eu": "$61,500/год",
+      "russia": "200,000 ₽/мес",
+      "china": "¥330k–600k/год"
+    }
+  },
+  {
+    "role": "Backend Engineer",
+    "regions": {
+      "usa": "$175,000/год",
+      "eu": "$71,900/год",
+      "russia": "228,000 ₽/мес",
+      "china": "¥330k–600k/год"
+    }
+  },
+  {
+    "role": "Full-stack Engineer",
+    "regions": {
+      "usa": "$138,000/год",
+      "eu": "$58,000/год",
+      "russia": "207,000 ₽/мес",
+      "china": "¥330k–600k/год"
+    }
+  },
+  {
+    "role": "Mobile Engineer",
+    "regions": {
+      "usa": "$170,000/год",
+      "eu": "$63,228/год",
+      "russia": "260,000 ₽/мес",
+      "china": "¥330k–600k/год"
+    }
+  },
+  {
+    "role": "Desktop Engineer",
+    "regions": {
+      "usa": "$128,000/год",
+      "eu": "$54,527/год",
+      "russia": "200,000 ₽/мес",
+      "china": "¥330k–600k/год"
+    }
+  },
+  {
+    "role": "Game Developer",
+    "regions": {
+      "usa": "$70,800/год",
+      "eu": "$88,171/год",
+      "russia": "164,000 ₽/мес",
+      "china": "¥250k–500k/год"
+    }
+  },
+  {
+    "role": "QA/Automation (SDET)",
+    "regions": {
+      "usa": "$57,400/год",
+      "russia": "150–180k ₽/мес",
+      "china": "¥200k–350k/год"
+    }
+  },
+  {
+    "role": "DevOps Engineer",
+    "regions": {
+      "usa": "$165,000/год",
+      "eu": "$69,609/год",
+      "russia": "244,500 ₽/мес",
+      "china": "¥330k–600k/год"
+    }
+  },
+  {
+    "role": "SRE (Site Reliability)",
+    "regions": {
+      "usa": "$189,000/год",
+      "eu": "$58,007/год",
+      "russia": "200–250k ₽/мес",
+      "china": "¥360k–650k/год"
+    }
+  },
+  {
+    "role": "Cloud/Infra Engineer",
+    "regions": {
+      "usa": "$189,000/год",
+      "eu": "$58,007/год",
+      "russia": "200–250k ₽/мес",
+      "china": "¥360k–600k/год"
+    }
+  },
+  {
+    "role": "Platform Engineer",
+    "regions": {
+      "usa": "$165–189k/год",
+      "eu": "$58–70k/год",
+      "russia": "200–260k ₽/мес",
+      "china": "¥360k–650k/год"
+    }
+  },
+  {
+    "role": "Data Analyst",
+    "regions": {
+      "usa": "$100,956/год",
+      "eu": "$78,282/год",
+      "russia": "130,000 ₽/мес",
+      "china": "¥220k–400k/год"
+    }
+  },
+  {
+    "role": "Data Engineer",
+    "regions": {
+      "usa": "$150,000/год",
+      "eu": "$78,890/год",
+      "russia": "225,000 ₽/мес",
+      "china": "¥300k–600k/год"
+    }
+  },
+  {
+    "role": "Data Scientist",
+    "regions": {
+      "usa": "$145,000/год",
+      "eu": "$60,328/год",
+      "russia": "210–230k ₽/мес",
+      "china": "¥350–600k/год"
+    }
+  },
+  {
+    "role": "ML Engineer (Applied)",
+    "regions": {
+      "usa": "$189,500/год",
+      "eu": "$73,089/год",
+      "russia": "175–200k ₽/мес",
+      "china": "¥400–900k/год"
+    }
+  },
+  {
+    "role": "Research Scientist (ML/AI)",
+    "regions": {
+      "usa": "$155–303k/год",
+      "russia": "250–350k ₽/мес",
+      "china": "¥1.1–1.5M/год"
+    }
+  },
+  {
+    "role": "MLOps / LLMOps Engineer",
+    "regions": {
+      "usa": "$150–190k/год",
+      "russia": "200–260k ₽/мес",
+      "china": "¥350–650k/год"
+    }
+  },
+  {
+    "role": "Security Engineer (All)",
+    "regions": {
+      "usa": "$150,000/год",
+      "eu": "$81,791/год",
+      "russia": "200–260k ₽/мес",
+      "china": "¥400–700k/год"
+    }
+  },
+  {
+    "role": "Systems/Embedded/Performance",
+    "regions": {
+      "usa": "$132–189k/год",
+      "eu": "$56,847/год",
+      "russia": "200–260k ₽/мес",
+      "china": "¥330k–600k/год"
+    }
+  },
+  {
+    "role": "Quant / Algorithmic Trading",
+    "regions": {
+      "usa": "TC: $360–496k",
+      "eu": "TC: £276k",
+      "russia": "Значительно выше SWE"
+    }
+  },
+  {
+    "role": "Другие доменные",
+    "regions": {}
+  }
+]
